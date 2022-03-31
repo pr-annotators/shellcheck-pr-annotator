@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@master
 
       - name: Add shellcheck annotator
-        uses: jpy-git/shellcheck-pr-annotator@master
+        uses: pr-annotators/shellcheck-pr-annotator@master
 
       - name: Run shellcheck
         uses: ludeeus/action-shellcheck@master

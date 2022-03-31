@@ -1,5 +1,5 @@
-name: "{tool-name} PR Annotator"
-description: "Annotate pull requests with {tool-name} errors detected during CI"
+name: "Shellcheck PR Annotator"
+description: "Annotate pull requests with shellcheck errors detected during CI"
 author: "Joe Young"
 runs:
   using: "composite"

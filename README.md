@@ -1,10 +1,12 @@
-# {tool-name} PR Annotator
+# Shellcheck PR Annotator
 
 ## Usage
 
-Annotate pull requests with {tool-name} errors detected during CI.
+Annotate pull requests with shellcheck errors detected during CI.
 
-Note: This doesn't install or run {tool-name}, it just sets up the PR annotations.
+This is designed to work with the "gcc" output format of shellcheck.
+
+Note: This doesn't install or run shellcheck, it just sets up the PR annotations.
 
 ### Example workflow
 
@@ -17,19 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
+      - name: Add shellcheck annotator
+        uses: jpy-git/shellcheck-pr-annotator@master
+
+      - name: Run shellcheck
+        uses: ludeeus/action-shellcheck@master
         with:
-          python-version: "3.8"
-        
-      - name: Install {tool-name}
-        run: |
-          pip install {tool-name}
-
-      - name: Add {tool-name} annotator
-        uses: jpy-git/{tool-name}-pr-annotator@master
-
-      - name: Run {tool-name}
-        run: |
-          {tool-name} src/
+          format: gcc
 ```
